@@ -1,0 +1,1042 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: black;
+  color: white;
+  overflow-x: hidden; /
+}
+
+/* HEADER */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: rgba(0,0,0,0.9); 
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #e99b63;
+}
+
+/* Transparent on scroll */
+.header.scrolled {
+  background-color: rgba(0,0,0,0.3); 
+  backdrop-filter: blur(5px); 
+}
+
+.header h1 a {
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 900; 
+  font-size: 28px;
+  letter-spacing: 2px; /* Professional tech spacing */
+  text-transform: uppercase;
+  
+  /* Gradient Text Effect */
+  background: linear-gradient(90deg, #e99b63 0%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  /* Subtle Tech Glow */
+  text-shadow: 0 0 20px rgba(233, 155, 99, 0.4);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* AI part ko highlight karne ke liye (Agar aap HTML mein <span> use karein) */
+/* Example: <a><span>AI</span> HUB</a> */
+.header h1 a span {
+  color: #e99b63;
+  -webkit-text-fill-color: #e99b63; /* Overrides gradient for this part */
+  /* border: 2px solid #e99b63; */
+  padding: 0 8px;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.header h1 a:hover {
+  letter-spacing: 4px; /* Hover par expand hoga */
+  text-shadow: 0 0 30px rgba(233, 155, 99, 0.8);
+  opacity: 0.9;
+}
+
+.desktop-nav {
+  display: flex;
+  gap: 40px;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: #e99b63;
+  position: relative; /* Zaroori hai underline ki position set karne ke liye */
+  padding-bottom: 5px; /* Thodi space underline aur text ke beech */
+  transition: color 0.3s ease;
+}
+
+/* Underline create karna (Pseudo-element) */
+.desktop-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Shuru mein width zero hogi */
+  height: 2px; /* Underline ki motai */
+  background-color: #e99b63; /* Underline ka color (Aap #e99b63 bhi rakh sakte hain) */
+  transition: width 0.3s ease; /* Left-to-right animation speed */
+}
+
+/* Hover par underline expand hogi */
+.desktop-nav a:hover::after {
+  width: 100%;
+}
+
+.explore-btn {
+  background: #e99b63;
+  color: black;
+  cursor: pointer;
+  padding: 12px 30px;
+  border-radius: 30px;
+  border: none;
+}
+
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 28px;
+}
+
+/* MOBILE MENU */
+/* Close Button in Mobile Menu */
+.close-btn {
+  position: absolute;
+  top: 25px;
+  right: 5%; /* Header ke padding se match karne ke liye */
+  background: none;
+  border: none;
+  color: #e99b63; /* Aapke theme ka color */
+  font-size: 45px; /* Thoda bada taaki asani se click ho */
+  cursor: pointer;
+  z-index: 1600;
+  transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg); /* Hover par cool rotation effect */
+  color: white;
+}
+.mobile-menu {
+  padding-top: 80px; /* Taaki links cross icon ke niche na dabein */
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1500;
+}
+
+.mobile-menu nav {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  text-align: center;
+}
+
+.mobile-menu nav a {
+  text-decoration: none;
+  color: #e99b63;
+  font-size: 24px;
+  position: relative;
+  padding-bottom: 8px;
+  margin: 0 auto; /* Center alignment ke liye */
+  display: inline-block; /* Width animation ke liye zaroori hai */
+}
+
+.mobile-menu nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #e99b63;
+  transition: width 0.3s ease;
+}
+
+.mobile-menu nav a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu nav a:hover {
+  color: #e99b63;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center; /* Yeh vertically center rakhega */
+  justify-content: space-between;
+  padding: 60px 5% 0; /* Top padding kam kar di taaki content upar aaye */
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-text {
+  max-width: 550px;
+  z-index: 5;
+  /* Agar abhi bhi niche lage toh thoda sa negative margin de sakte hain */
+  margin-top: -30px; 
+}
+
+.hero h2 {
+  font-size: clamp(40px, 6vw, 60px);
+  margin: 20px 0;
+  font-size: 40px;
+  color: #e99b63;
+  line-height: 1.1;
+}
+
+.tag {
+  border: 1px solid #e99b63;
+  padding: 8px 20px;
+  border-radius: 30px;
+  width: fit-content;
+}
+
+.hero p {
+  color: #aaa;
+}
+
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.hero-buttons a {
+  border: 1px solid #333;
+  padding: 12px 20px;
+  border-radius: 30px;
+  text-decoration: none;
+  color: white;
+}
+
+.dark-btn {
+  background: #e99b63;
+  color: black !important;
+}
+
+/* ROBOT CONTAINER FIX */
+/* ROBOT CONTAINER - Desktop setup */
+.robot {
+  width: 50%;
+  height: 80vh; /* Viewport height use ki taaki screen se bahar na jaye */
+  margin-top: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+spline-viewer {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* AI TOPICS */
+.ai-topics {
+  min-height: 100vh; /* Changed to min-height for responsiveness */
+  padding: 100px 5%;
+  text-align: center;
+}
+
+.ai-topics h2{
+  color: #e99b63;
+  font-size: 50px;
+}
+
+.subtitle {
+  color: #aaa;
+  margin: 15px 0 50px;
+}
+
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.card {
+  background: #111;
+  border: 1px solid #555;
+  padding: 30px;
+  border-radius: 25px;
+}
+
+.card i {
+  font-size: 50px;
+  color: #e99b63;
+}
+
+/* AI TOOLS HIGHLIGHTS */
+.about-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 50px;
+  flex-wrap: wrap;
+}
+
+.about-highlights .highlight {
+  background-color: black;
+  padding: 20px;
+  border-radius: 20px;
+  width: 250px;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #333;
+}
+
+.about-highlights .highlight i {
+  font-size: 40px;
+  color: #e99b63;
+  margin-bottom: 15px;
+}
+
+.about-highlights .highlight h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-highlights .highlight p {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.ai-tools {
+  min-height: 100vh; /* Changed to min-height */
+  background: url('https://www.shutterstock.com/image-vector/dark-abstract-texture-design-featuring-600nw-2551093121.jpg') center/cover fixed;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+}
+
+.tools-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 60px 10%;
+}
+
+.tools-content h1 {
+  font-size: 60px;
+  color: #e99b63;
+}
+
+.tools-content p {
+  color: #ccc;
+  margin-top: 20px;
+}
+
+/* ML & DL Section */
+.ml-dl {
+  background: url('https://www.shutterstock.com/image-vector/dark-abstract-texture-design-featuring-600nw-2551093121.jpg') center/cover fixed;
+  padding: 100px 5%;
+  min-height: 100vh; /* Changed to min-height */
+  color: white;
+  text-align: center;
+}
+
+.ml-dl-content h2 {
+  font-size: 50px;
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.ml-dl-content p {
+  color: #aaa;
+  max-width: 800px;
+  margin: 0 auto 60px auto;
+  line-height: 1.6;
+}
+
+.ml-dl-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.ml-dl-card {
+  background: #000;
+  border: 1px solid #444;
+  border-radius: 25px;
+  padding: 30px;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.ml-dl-card:hover {
+  box-shadow: 0 0 25px rgba(233, 155, 99, 0.5);
+  transform: translateY(-5px);
+}
+
+.ml-dl-card i {
+  font-size: 45px;
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.ml-dl-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.ml-dl-card p {
+  font-size: 15px;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+/* AI Tools Section Grid */
+.ai-tools-section {
+  position: relative;
+  background: black;
+  padding: 120px 5%;
+  color: white;
+}
+
+.ai-tools-section .overlay {
+  position: absolute;
+  inset: 0;
+  background: black;
+  z-index: 1;
+}
+
+.ai-tools-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.ai-tools-content h2 {
+  font-size: 50px;
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.ai-tools-content p {
+  color: #ccc;
+  max-width: 900px;
+  margin: 0 auto 60px auto;
+  line-height: 1.6;
+}
+
+.ai-tools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  justify-items: center;
+}
+
+.tool-card {
+  background: rgba(0,0,0,0.85);
+  border: 1px solid #444;
+  border-radius: 25px;
+  cursor: pointer;
+  padding: 30px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 0 25px rgba(233,155,99,0.5);
+}
+
+.tool-card i {
+  font-size: 50px;
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.tool-card h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.tool-card p {
+  color: #ccc;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* BLOGS SECTION */
+.blogs-section {
+  min-height: 100vh; /* Changed to min-height */
+  padding: 120px 5%;
+  background: url('https://www.shutterstock.com/image-vector/dark-abstract-texture-design-featuring-600nw-2551093121.jpg') center/cover fixed;
+  color: white;
+  text-align: center;
+}
+
+.blogs-section h2 {
+  font-size: 50px;
+  color: #e99b63;
+  margin-bottom: 15px;
+}
+
+.blogs-section .subtitle {
+  color: #aaa;
+  margin-bottom: 60px;
+}
+
+.blogs-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+
+.blog-card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 0 25px rgba(233,155,99,0.5);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-info {
+  padding: 20px;
+  text-align: left;
+}
+
+.blog-info h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #e99b63;
+}
+
+.blog-info p {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.blog-info a {
+  text-decoration: none;
+  color: #e99b63;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s ease;
+}
+
+/* FAQ CSS */
+.faq-section {
+  min-height: 100vh; /* Changed to min-height */
+  padding: 100px 5%;
+  background: black;
+  color: white;
+  text-align: center;
+}
+
+.faq-section h2 {
+  margin-top: 60px;
+  font-size: 50px;
+  color: #e99b63;
+  margin-bottom: 15px;
+}
+
+.faq-section .subtitle {
+  color: #aaa;
+  margin-bottom: 50px;
+}
+
+.faq-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.faq-item {
+  border: 1px solid #444;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  background: #111;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px;
+  background: #111;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 18px;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s ease;
+}
+
+.faq-answer {
+  max-height: 0;
+  padding: 0 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background: #111;
+}
+
+.faq-answer p {
+  margin: 15px 0;
+  color: #ccc;
+}
+
+.faq-question i {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px; /* Increased to accommodate content */
+  padding-bottom: 20px;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+/* ================= CONTACT SECTION (FIXED) ================= */
+.contact-section {
+  min-height: 100vh;
+  position: relative;
+  background: url('https://www.shutterstock.com/image-vector/dark-abstract-texture-design-featuring-600nw-2551093121.jpg') center/cover no-repeat fixed;
+  padding: 120px 5%;
+  display: flex;
+  align-items: center;
+}
+
+.contact-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-content h2 {
+  font-size: clamp(35px, 5vw, 50px);
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.contact-content p {
+  color: #ccc; /* Theme gray matches description */
+  margin-bottom: 45px;
+  line-height: 1.7;
+  font-size: 18px; /* Bigger and cleaner */
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 18px 25px;
+  border-radius: 30px;
+  border: 1px solid #444;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  font-size: 16px;
+  outline: none;
+}
+
+.contact-form button {
+  padding: 18px;
+  border-radius: 35px;
+  background: #e99b63;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  border: none;
+}
+
+/* ================= FOOTER (FIXED) ================= */
+.footer {
+  background: #0a0a0a;
+  color: #fff;
+  padding: 80px 5% 40px;
+  border-top: 1px solid #222;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 50px;
+}
+
+.footer-brand h1 {
+  font-size: 32px;
+  color: #e99b63;
+  margin-bottom: 15px;
+}
+
+.footer-brand p {
+  color: #aaa;
+  font-size: 16px; /* Bigger font */
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.footer-links h3,
+.footer-social h3,
+.footer-contact h3 {
+  font-size: 20px; /* Bigger heading */
+  color: #e99b63;
+  margin-bottom: 20px;
+}
+
+.footer-links ul li {
+  list-style: none;
+  margin-bottom: 12px;
+}
+
+.footer-links ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 16px; /* Bigger font */
+  transition: 0.3s;
+}
+
+.footer-links ul li a:hover {
+  color: #e99b63;
+}
+
+/* Footer Contact/Newsletter Column */
+.footer-contact p {
+  color: #ccc;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.footer-contact .newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-contact .newsletter-form input {
+  padding: 12px 20px;
+  border-radius: 25px;
+  border: 1px solid #444;
+  background: #000;
+  color: white;
+  font-size: 16px;
+}
+
+.footer-contact .newsletter-form button {
+  padding: 12px;
+  border-radius: 25px;
+  background: #e99b63;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+}
+
+.footer-social .social-icons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-social .social-icons a {
+  color: #ccc;
+  font-size: 24px;
+}
+
+.footer-social .social-icons a:hover{
+  color: #e99b63;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 25px;
+  border-top: 1px solid #222;
+  color: #666;
+  font-size: 15px;
+}
+
+/* ================= SCROLL TO TOP BUTTON (FIXED) ================= */
+#scrollToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: #e99b63;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2000;
+  display: flex; /* Display ko flex rakhein */
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px rgba(233, 155, 99, 0.4);
+  
+  /* Initial State (Jab show nahi karna) */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+}
+
+/* Jab ye class JS se add hogi tab show hoga */
+#scrollToTop.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+#scrollToTop:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(233, 155, 99, 0.7);
+  background: white;
+}
+
+/* ================= MEDIA QUERIES FOR CONTACT/FOOTER ================= */
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr; /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  #scrollToTop {
+    width: 40px;      /* Desktop pe 50px tha, mobile pe 40px */
+    height: 40px;     /* Desktop pe 50px tha, mobile pe 40px */
+    bottom: 20px;     /* Screen ke bottom se thoda aur kareeb */
+    right: 20px;      /* Screen ke right se thoda aur kareeb */
+    font-size: 24px;  /* Icon ka size bhi thoda chota */
+    box-shadow: 0 0 10px rgba(233, 155, 99, 0.3); /* Subtle glow */
+  }
+    .scroll-btn {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+  .contact-section {
+    padding: 80px 5%;
+  }
+  
+  .footer-container {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    text-align: center;
+  }
+  
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+
+  .footer-brand, .footer-links, .footer-social, .footer-contact {
+    margin-bottom: 20px;
+  }
+}
+
+/* CUSTOM ALERT */
+.custom-alert {
+  position: fixed;
+  top: 20px;
+  
+  /* Sirf ye do lines change karein */
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  
+  background: #111;
+  border: 2px solid #e99b63;
+  padding: 20px 30px;
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  z-index: 3000;
+  min-width: 280px;
+  max-width: 90%;
+  box-shadow: 0 0 25px rgba(233,155,99,0.5);
+}
+.custom-alert p {
+  margin-bottom: 20px;
+  color: #e99b63;
+  font-weight: bold;
+}
+
+.custom-alert button {
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background: #e99b63;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ================= RESPONSIVE MEDIA QUERIES ================= */
+
+@media (max-width: 1024px) {
+  .blogs-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .topics-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .ml-dl-grid, .ai-tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .hero h2 {
+    font-size: 50px;
+  }
+  .robot { height: 500px; }
+}
+
+@media (max-width: 768px) {
+ /* ROBOT MOBILE FIX - No More Cutting */
+  .robot {
+    order: 2; /* Robot niche */
+    width: 100% !important; /* Screen se bahar nahi jayega */
+    height: 400px !important; /* Height fix */
+    margin: 0 auto !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: visible; /* Spline model ko saans lene dein */
+  }
+
+  spline-viewer {
+    width: 100% !important;
+    height: 100% !important;
+    /* Yeh line robot ko chhota karke center karegi bina kaate */
+    transform: scale(0.85); 
+    transform-origin: center;
+  }
+  .header {
+    padding: 15px 5%;
+  }
+  .desktop-nav, .explore-btn {
+    display: none;
+  }
+  .menu-btn {
+    display: block;
+  }
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: 120px;
+  }
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 40px;
+  }
+  .hero h2 {
+    font-size: 40px;
+  }
+  .robot {
+    width: 100%;
+    height: 350px;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .topics-grid, .blogs-grid, .ml-dl-grid, .ai-tools-grid {
+    grid-template-columns: 1fr;
+  }
+  .tools-content h1, .ml-dl-content h2, .ai-tools-content h2, .blogs-section h2, .faq-section h2, .contact-content h2 {
+    font-size: 35px;
+  }
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .footer-social .social-icons {
+    justify-content: center;
+  }
+  .about-highlights {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  #scrollToTop {
+    width: 35px;      /* Bohat chote phones ke liye mazeed chota */
+    height: 35px;
+    bottom: 15px;
+    right: 15px;
+    font-size: 20px;
+  }
+  .robot {
+    height: 320px !important; /* Chote phones ke liye height kam */
+  }
+  .hero h2 {
+    font-size: 32px;
+  }
+  .tag {
+    margin: 0 auto;
+  }
+  .contact-form input, .contact-form textarea {
+    font-size: 14px;
+  }
+}

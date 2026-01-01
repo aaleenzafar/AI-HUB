@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI HUB</title>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+  <!-- AOS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/style.css"/>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="header" >
+  <h1 data-aos="fade-down" ><a href="index.html"><span>AI</span> HUB</a></h1>
+
+  <nav class="desktop-nav">
+    <a href="#ai-topics">AI TOPICS</a>
+    <a href="#ml-dl">ML & DL</a>
+    <a href="#ai-tools-section">TOOLS</a>
+    <a href="#blogs-section">BLOGS</a>
+    <a href="#faq">FAQ</a>
+    <!-- <a href="#contact-section">CONNECT</a> -->
+  </nav>
+
+  <button class="explore-btn" href="#contact-section" onclick="document.getElementById('contact-section').scrollIntoView({behavior:'smooth'})">
+    Let’s Connect
+  </button>
+
+  <button class="menu-btn" onclick="toggleMenu()">
+    <i class="bx bx-menu"></i>
+  </button>
+</header>
+
+<div id="mobileMenu" class="mobile-menu hidden">
+  <button class="close-btn" onclick="toggleMenu()">
+    <i class='bx bx-x'></i>
+  </button>
+  <nav>
+    <a href="#ai-topics" onclick="toggleMenu()">AI TOPICS</a>
+    <a href="#ml-dl" onclick="toggleMenu()">ML & DL</a>
+    <a href="#ai-tools-section" onclick="toggleMenu()">TOOLS</a>
+    <a href="#blogs-section" onclick="toggleMenu()">BLOGS</a>
+    <a href="#faq" onclick="toggleMenu()">FAQ</a>
+    <a href="#contact-section" onclick="toggleMenu()">CONNECT</a>
+  </nav>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="hero">
+  <div class="hero-text" data-aos="fade-right">
+    <div class="tag">
+      <i class="bx bx-diamond"></i> AI KNOWLEDGE
+    </div>
+
+    <h2>AI<br>INSIGHTS</h2>
+
+    <p>
+      Learn everything about Artificial Intelligence — from basics to advanced concepts including ML, DL, ethics and future trends.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="#blogs-section">Read AI Blogs <i class="bx bx-link-external"></i></a>
+      <a href="#contact-section" class="dark-btn">Let’s Connect <i class="bx bx-link-external"></i></a>
+    </div>
+  </div>
+
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
+  <spline-viewer class="robot"
+    url="https://prod.spline.design/QjCTbyQNFfRMK-0t/scene.splinecode" 
+    hide-ui>
+  </spline-viewer>
+</section>
+
+<!-- ================= ABOUT / AI TOOLS ================= -->
+<section class="ai-tools" id="about-ai">
+  <div class="overlay"></div>
+  <div class="tools-content">
+    <h1 data-aos="fade-down">ALL ABOUT ARTIFICIAL INTELLIGENCE</h1>
+    
+    <p data-aos="fade-up">
+      Artificial Intelligence is transforming the world. Explore Machine Learning, Deep Learning, Neural Networks, Robotics, AI Ethics, and Tools that shape the future of technology.
+    </p>
+    
+    <p data-aos="fade-up" data-aos-delay="200">
+      Learn to implement AI solutions in real-world applications, understand data-driven decision making, and discover the power of automation.
+    </p>
+    
+    <div class="about-highlights" data-aos="fade-up" data-aos-delay="400">
+      <div class="highlight">
+        <i class="bx bx-brain"></i>
+        <h3>AI Concepts</h3>
+        <p>Understand core AI principles and how intelligent systems work.</p>
+      </div>
+      <div class="highlight">
+        <i class="bx bx-rocket"></i>
+        <h3>Innovations</h3>
+        <p>Discover latest breakthroughs and futuristic AI technologies.</p>
+      </div>
+      <div class="highlight">
+        <i class="bx bx-cog"></i>
+        <h3>Tools & Platforms</h3>
+        <p>Hands-on experience with AI frameworks and tools for developers.</p>
+      </div>
+    </div>
+    
+    <p class="small" data-aos="fade-up" data-aos-delay="600">
+      Whether you are a beginner or an advanced learner, this AI Hub provides all the insights you need to learn, implement, and innovate in Artificial Intelligence.
+    </p>
+  </div>
+</section>
+
+<!-- ================= AI TOPICS ================= -->
+<section class="ai-topics" id="ai-topics">
+  <h2 data-aos="fade-up">AI TOPICS</h2>
+  <p class="subtitle" data-aos="fade-up" data-aos-delay="100">Explore core areas of Artificial Intelligence</p>
+
+  <div class="topics-grid">
+    <div class="card" data-aos="fade-up" data-aos-delay="200"><i class="bx bx-brain"></i><h3>AI</h3><p>What AI is and how it works.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="300"><i class="bx bx-network-chart"></i><h3>Machine Learning</h3><p>Machines learning from data.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="400"><i class="bx bx-chip"></i><h3>Deep Learning</h3><p>Neural networks & CNNs.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="500"><i class="bx bx-shield-quarter"></i><h3>AI Ethics</h3><p>Responsible AI usage.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="600"><i class="bx bx-data"></i><h3>Data Science</h3><p>Insights from data.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="700"><i class="bx bx-cog"></i><h3>Robotics</h3><p>Automation & machines.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="800"><i class="bx bx-bar-chart-alt-2"></i><h3>Analytics</h3><p>AI-powered decisions.</p></div>
+    <div class="card" data-aos="fade-up" data-aos-delay="900"><i class="bx bx-bulb"></i><h3>Innovation</h3><p>Future AI ideas.</p></div>
+  </div>
+</section>
+
+<!-- ================= ML & DL ================= -->
+<section class="ml-dl" id="ml-dl">
+  <div class="ml-dl-content">
+    <h2 data-aos="fade-up">Machine Learning & Deep Learning</h2>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Dive deep into AI’s backbone – understand how machines learn, adapt, and make intelligent decisions. Explore key ML algorithms, neural networks, and their real-world applications.
+    </p>
+
+    <div class="ml-dl-grid">
+      <div class="ml-dl-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="bx bx-brain"></i>
+        <h3>Supervised Learning</h3>
+        <p>Learn how machines map inputs to outputs using labeled data, with algorithms like Linear Regression, Decision Trees, and SVMs.</p>
+      </div>
+      <div class="ml-dl-card" data-aos="fade-up" data-aos-delay="400">
+        <i class="bx bx-network-chart"></i>
+        <h3>Neural Networks</h3>
+        <p>Discover the architecture of neurons, layers, activation functions, and how deep learning powers AI applications.</p>
+      </div>
+      <div class="ml-dl-card" data-aos="fade-up" data-aos-delay="500">
+        <i class="bx bx-rocket"></i>
+        <h3>Advanced Techniques</h3>
+        <p>Explore Convolutional Neural Networks (CNNs), Recurrent Neural Networks (RNNs), and Reinforcement Learning for complex AI solutions.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= AI TOOLS ================= -->
+<section class="ai-tools-section" id="ai-tools-section">
+  <div class="overlay"></div>
+
+  <div class="ai-tools-content">
+    <h2 data-aos="fade-up">AI Tools & Platforms</h2>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Discover the most powerful AI tools and platforms that are revolutionizing machine learning, deep learning, and data-driven intelligence. From research to production, these tools empower developers, data scientists, and AI enthusiasts.
+    </p>
+
+    <div class="ai-tools-grid">
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="300">
+        <i class="bx bx-cog"></i>
+        <h3>TensorFlow</h3>
+        <p>
+          Open-source library for ML & deep learning. <strong>Key Feature:</strong> Flexible computational graphs. <br>
+          <strong>Use:</strong> Image recognition, NLP, predictive modeling.
+        </p>
+      </div>
+
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="400">
+        <i class="bx bx-brain"></i>
+        <h3>PyTorch</h3>
+        <p>
+          Popular deep learning framework for research & production. <strong>Key Feature:</strong> Dynamic computation graph. <br>
+          <strong>Use:</strong> AI research, prototyping, robotics, GANs.
+        </p>
+      </div>
+
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="500">
+        <i class="bx bx-server"></i>
+        <h3>OpenAI GPT</h3>
+        <p>
+          Advanced NLP model for generating human-like text. <strong>Key Feature:</strong> Large-scale language model. <br>
+          <strong>Use:</strong> Chatbots, content generation, coding assistance.
+        </p>
+      </div>
+
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="600">
+        <i class="bx bx-data"></i>
+        <h3>DataRobot</h3>
+        <p>
+          Enterprise AI platform for automated ML workflows. <strong>Key Feature:</strong> AutoML pipelines. <br>
+          <strong>Use:</strong> Predictive analytics, business intelligence, AI-driven decisions.
+        </p>
+      </div>
+
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="700">
+        <i class="bx bx-bar-chart-alt-2"></i>
+        <h3>Hugging Face</h3>
+        <p>
+          Hub for pre-trained NLP models. <strong>Key Feature:</strong> Transformers library. <br>
+          <strong>Use:</strong> Text classification, summarization, translation.
+        </p>
+      </div>
+
+      <div class="tool-card" data-aos="fade-up" data-aos-delay="800">
+        <i class="bx bx-server"></i>
+        <h3>Google AI Platform</h3>
+        <p>
+          Cloud platform for AI & ML development. <strong>Key Feature:</strong> Scalable training & deployment. <br>
+          <strong>Use:</strong> Cloud-based ML models, scalable AI applications.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOGS ================= -->
+<section class="blogs-section" id="blogs-section">
+  <div class="blogs-content">
+    <h2 data-aos="fade-up">Latest AI Blogs</h2>
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
+      Stay updated with the latest articles, tutorials, and insights in Artificial Intelligence.
+    </p>
+
+    <div class="blogs-grid">
+      <!-- Blog Card 1 -->
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+        <img src="assets/img/BlogImg1.png" alt="Blog 1">
+        <div class="blog-info">
+          <h3>Introduction to Machine Learning</h3>
+          <p>Learn the basics of Machine Learning, algorithms, and how AI models are trained.</p>
+          <a href="#">Read More <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+        <img src="assets/img/BlogImg2.png" alt="Blog 2">
+        <div class="blog-info">
+          <h3>Deep Learning Explained</h3>
+          <p>Understand neural networks, CNNs, RNNs, and their real-world AI applications.</p>
+          <a href="#">Read More <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="400">
+        <img src="assets/img/BlogImg3.png" alt="Blog 3">
+        <div class="blog-info">
+          <h3>AI Ethics and Responsibility</h3>
+          <p>Explore ethical concerns in AI, fairness, bias, and responsible AI development.</p>
+          <a href="#">Read More <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+      </div>
+
+      <!-- Blog Card 4 -->
+      <div class="blog-card" data-aos="fade-up" data-aos-delay="500">
+        <img src="assets/img/BlogImg4.png" alt="Blog 4">
+        <div class="blog-info">
+          <h3>Top AI Tools in 2025</h3>
+          <p>Discover the best AI tools and platforms for developers, researchers, and businesses.</p>
+          <a href="#">Read More <i class="bx bx-right-arrow-alt"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq-section" id="faq">
+  <div class="faq-content">
+    <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+    <p class="subtitle" data-aos="fade-up" data-aos-delay="100">
+      Have questions? Here are answers to the most common queries about AI and our platform.
+    </p>
+
+    <div class="faq-accordion" data-aos="fade-up" data-aos-delay="200">
+      <!-- FAQ Item 1 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          What is Artificial Intelligence (AI)?
+          <i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think, learn, and solve problems like humans.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Which programming languages are used in AI?
+          <i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Popular languages for AI include Python, R, Java, and C++. Python is widely preferred due to its simplicity and rich AI/ML libraries.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Do I need prior experience to learn AI?
+          <i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>No, our AI Hub is designed for beginners to advanced learners. We provide tutorials starting from basics to complex AI applications.</p>
+        </div>
+      </div>
+
+      <!-- FAQ Item 4 -->
+      <div class="faq-item">
+        <button class="faq-question">
+          Can I use AI tools in real-world projects?
+          <i class="bx bx-chevron-down"></i>
+        </button>
+        <div class="faq-answer">
+          <p>Yes! We provide guidance and examples of how to use AI tools like TensorFlow, PyTorch, and OpenAI GPT in real-world scenarios.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONNECT / CONTACT FORM ================= -->
+<section class="contact-section" id="contact-section">
+  <div class="overlay"></div>
+
+  <div class="contact-content">
+    <h2 data-aos="fade-up">Connect With Us</h2>
+    <p data-aos="fade-up" data-aos-delay="200">
+      Have questions, suggestions, or want to collaborate? Drop us a message and we'll get back to you.
+    </p>
+
+   <form action="https://api.web3forms.com/submit" method="POST" class="contact-form" data-netlify="false" data-aos="fade-up" data-aos-delay="400">
+    <input type="hidden" name="access_key" value="01d31215-818b-484a-b4b2-b4baecf7dea5">
+    
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+    <button type="submit">Send Message</button>
+</form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="footer-container">
+    <!-- Brand / About -->
+    <div class="footer-brand">
+      <h1>AI HUB</h1>
+      <p>Explore, Learn & Innovate with AI. <br><strong>AICT Lab Project</strong></p>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-links">
+      <h3>Quick Links</h3>
+      <ul>
+        <li><a href="#ai-topics">AI Topics</a></li>
+        <li><a href="#ml-dl">ML & DL</a></li>
+        <li><a href="#ai-tools-section">Tools</a></li>
+        <li><a href="#blogs-section">Blogs</a></li>
+        <li><a href="#contact-section">Connect</a></li>
+        <li><a href="#">Resources</a></li>
+        <li><a href="#">About AICT Lab</a></li>
+      </ul>
+    </div>
+
+    <!-- Social Links -->
+    <div class="footer-social">
+      <h3>Follow Us</h3>
+      <div class="social-icons">
+        <a href="https://web.facebook.com/aaleen.zafar.9" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.linkedin.com/in/aaleen-zafar/" target="_blank"><i class="bx bxl-twitter"></i></a>
+        <a href="https://www.linkedin.com/in/aaleen-zafar/" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.instagram.com/_.aaleenzafar_/" target="_blank"><i class="bx bxl-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact / Newsletter Placeholder -->
+    <div class="footer-contact">
+      <h3>Contact</h3>
+      <p>Email: aaleenzafar52@gmail.com</p>
+      <p>Phone: +92 332 035 4869</p>
+      <!-- Optional newsletter -->
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 AI HUB. All Rights Reserved. | Designed as an <strong>AICT Lab Project</strong></p>
+  </div>
+</footer>
+
+<!-- Custom Alert -->
+<div id="customAlert" class="custom-alert hidden" data-aos="zoom-in">
+  <p id="alertMessage"></p>
+  <button onclick="closeAlert()">OK</button>
+</div>
+
+<!-- Scroll Top Button -->
+<button id="scrollToTop" class="scroll-btn">
+  <i class='bx bx-chevron-up'></i>
+</button>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+<!-- Custom JS -->
+<script src="assets/script.js"></script>
+
+
+</body>
+</html>
