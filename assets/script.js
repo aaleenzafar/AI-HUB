@@ -51,10 +51,32 @@ function closeAlert() {
 }
 
 contactForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  e.preventDefault(); // Pehle default submit roko
 
+  // --- VALIDATION START ---
+  const nameInput = contactForm.querySelector('input[name="name"]');
+  const messageInput = contactForm.querySelector('textarea[name="message"]');
+  const nameValue = nameInput.value.trim();
+  const messageValue = messageInput.value.trim();
+  
+  // Name Validation: Min 3 chars, Alphabets only
+  const nameRegex = /^[a-zA-Z\s]{3,50}$/; 
+  if (!nameRegex.test(nameValue)) {
+      showAlert("Please enter a valid name (at least 3 characters, alphabets only).");
+      nameInput.focus();
+      return; // Yahin se wapas mud jao, aage mat badho
+  }
+
+  // Message Validation: Min 10 chars
+  if (messageValue.length < 10) {
+      showAlert("Your message is too short. Please enter at least 10 characters.");
+      messageInput.focus();
+      return; // Yahin se wapas mud jao
+  }
+  // --- VALIDATION END ---
+
+  // Agar validation pass ho gayi, tab niche wala Fetch code chalega
   const formData = new FormData(contactForm);
-  // FormData ko object mein convert karna behtar rehta hai Web3Forms ke liye
   const object = Object.fromEntries(formData);
   const json = JSON.stringify(object);
 
@@ -74,11 +96,9 @@ contactForm.addEventListener('submit', async (e) => {
       showAlert('Thank you! Your message has been sent.');
       contactForm.reset();
     } else {
-      console.log(result);
       showAlert('Oops! ' + (result.message || 'Something went wrong.'));
     }
   } catch (error) {
-    console.error(error);
     showAlert('Error! Please check your internet connection.');
   }
 });
@@ -100,3 +120,4 @@ scrollBtn.addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
